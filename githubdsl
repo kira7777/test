@@ -1,5 +1,5 @@
 job('job_dsl_v2') {
-  description('This is the 3rd version of my awesome Job_from remote Github Repo')
+  description('This is the 3rd version of my awesome Job_from remote Github Repository')
 parameters {
         stringParam('skyleader','lilouch', 'This the sky ship Leader')
         booleanParam('aman', true)
