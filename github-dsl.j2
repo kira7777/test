@@ -1,0 +1,94 @@
+job('job_dsl_v2') {
+  description('This is the 2nd version of my awesome Job')
+parameters {
+        stringParam('skyleader','lilouch', 'This the sky ship Leader')
+        booleanParam('aman', true)
+        choiceParam('favorites', ['blue', 'red', 'green'])
+    }
+      
+  
+  
+  
+  scm {
+    git{
+     remote {
+  
+        url('https://github.com/nawfelomheni/test.git')
+   
+     }
+      branch('master')
+    }   
+  }
+      
+      
+  
+    steps {
+        shell("""
+
+echo 'hello '
+echo 'world!'
+""") 
+    } 
+
+}
+job("ansible-dsl")
+{
+description ("this is the DSL version of the ansible-displayWebserver project")
+parameters
+  {
+    stringParam("MINAGE" , "20")
+    stringParam("MAXAGE" , "70")
+    }
+steps
+  {
+    ansiblePlaybook("/var/jenkins_ansible_home/ansible/phpBook2.yaml")
+{
+    inventoryPath("/var/jenkins_ansible_home/hosts")
+    extraVars {
+                extraVar("MIN_AGE", '${MINAGE}', false)
+                extraVar("MAX_AGE", '${MAXAGE}', false)
+            }
+     }
+ }
+}
+job ("maven-job-dsl")
+  {
+    description("this the DSL version of the maven-job project")
+    scm
+   {
+     git
+     {
+       remote
+       {
+         url("https://github.com/jenkins-docs/simple-java-maven-app.git")
+         }
+       branch("master")
+       }
+     }
+    steps
+    {
+      maven
+      {
+        goals("clean")
+        mavenInstallation("jenkins-maven")
+        goals("-B -DskipTests clean package")
+        }
+      maven
+      {
+        mavenInstallation("jenkins-maven")
+        goals("test")
+        }
+
+      shell("""
+                echo "***********************"
+                echo "** Deploying the JAR **"
+                echo "***********************"
+                java -jar /var/jenkins_home/workspace/maven-job/target/my-app-1.0-SNAPSHOT.jar
+            """)
+      }
+    publishers
+    {
+      archiveJunit("target/surefire-reports/*.xml")
+      }
+
+    }
