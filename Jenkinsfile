@@ -26,7 +26,6 @@ stage('Deploy') {
             steps {
                 sh 'echo "Fail!"; exit 1'
             }
-        }
     }
         stage('Final')
         {
@@ -45,9 +44,7 @@ stage('Deploy') {
             
         }
 
-        
-        
-    }
+       
 post {
         always {
             echo 'I will always get executed :D'
