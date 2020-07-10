@@ -2,4 +2,4 @@
 
 var=$1
 
-echo "my name is $var"
+echo "my name is $var" /tmp/fromgithub
