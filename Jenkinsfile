@@ -9,7 +9,7 @@ pipeline {
             steps {
                 
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                timeout(time: 5, unit: 'SECONDS') {
+                timeout(time: 6, unit: 'SECONDS') {
                    retry(3) {
                     sh 'echo hello'
                      sh 'sleep 3'
