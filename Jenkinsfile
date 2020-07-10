@@ -44,7 +44,7 @@ stage('Deploy') {
             
         }
 
-       
+}       
 post {
         always {
             echo 'I will always get executed :D'
