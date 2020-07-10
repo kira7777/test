@@ -1,8 +1,8 @@
 pipeline {
     agent any
       environment {
-        NAME = 'lilouch'
-        LASTNAME = 'dell'
+        NAME = 'Gimmy'
+        LASTNAME = 'Muller'
     }
     stages {
         stage('Test') {
