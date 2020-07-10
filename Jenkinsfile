@@ -3,6 +3,7 @@ pipeline {
       environment {
         NAME = 'Gimmy'
         LASTNAME = 'Muller'
+        secret = credentials('My_SECRET')
     }
     stages {
         stage('Test') {
@@ -26,7 +27,11 @@ pipeline {
         {
             steps
             {
-                sh 'echo this is the final stage'
+                sh """
+                   echo 'this is the final stage'
+                   echo 'by the way this is the secret of $NAME : $secret ' 
+                     
+                   """ 
                 
                 
             }
