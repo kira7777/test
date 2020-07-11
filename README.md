@@ -1,3 +1,3 @@
 This is the 7th version of the Jenkins linked project
-this project ic Created By Liloucha Dell
+this project is Created By Liloucha Dell
 # test
