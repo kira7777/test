@@ -1,2 +1,2 @@
 this is a test for the jenknins github integration.
-test ignore feature in job configuration
+test ignore feature in job configuration: second try
