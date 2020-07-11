@@ -1,2 +1,2 @@
-This is a Jenkins linked project
+This is the 1str version of the Jenkins linked project
 # test
