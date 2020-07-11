@@ -1,2 +1,2 @@
-This is the 6th version of the Jenkins linked project
+This is the 7th version of the Jenkins linked project
 # test
