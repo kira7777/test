@@ -92,3 +92,32 @@ job ("maven-job-dsl")
       }
 
     }
+job('ansible-simple-project-dsl')
+{
+ description('This a simple project using Ansible. and Github written in DSL')
+ parameters{
+  stringParam('SECRET', 'I love Humburger', 'this is lilouchs secret')
+}
+steps{
+   shell("""
+echo 'this is a dsl job version of the ansible-github project'
+""")
+ansiblePlaybook('/var/jenkins_ansible_home/ansible-simple-project/ansible-simple-project.yaml'){
+
+inventoryPath("/var/jenkins_ansible_home/hosts")
+
+}
+
+triggers{
+upstream(ansibleENV,'SUCCESS') 
+
+}
+
+}
+
+
+
+
+
+
+}
