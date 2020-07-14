@@ -32,7 +32,7 @@ stage('Deploy') {
             steps
             {
                 sh """
-                   ech 'this is the final stage'
+                   echo 'this is the final stage'
                    echo 'by the way this is the secret of $NAME : $secret ' 
                      
                    """ 
