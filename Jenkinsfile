@@ -4,9 +4,12 @@ pipeline {
         NAME = 'Gimmy'
         LASTNAME = 'Muller'
         secret = credentials('My_SECRET')
+
     }
     stages {
-        stage('Test') {
+
+
+stage('Test') {
             steps {
                 
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
@@ -22,12 +25,17 @@ pipeline {
             }
             
         }
-stage('Deploy') {
+
+
+stage('CodeFixAndValidation') {
             steps {
                 sh 'echo "success!"; exit 0'
             }
     }
-        stage('Final')
+
+
+
+stage('Final')
         {
             steps
             {
