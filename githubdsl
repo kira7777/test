@@ -111,10 +111,10 @@ downstream {
 childProjects('ansibleENV') 
 threshold('SUCCESS') 
 } 
-#triggers{
-#upstream('ansibleENV','SUCCESS') 
+//triggers{
+//upstream('ansibleENV','SUCCESS') 
 
-#}
+//}
 
 }
 
