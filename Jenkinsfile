@@ -23,9 +23,33 @@ pipeline {
             
         }
 stage('CodeFixAndValidation') {
+ parallel {
+      // One or more stages need to be included within the parallel block.
+
+       stage(CodeFix)
+{
+
             steps {
                 sh 'echo "success!"; exit 0'
             }
+
+}
+
+
+stage(CodeValidation){
+
+steps{
+
+sh 'echo "the Code Validation Stage"; exit 0'
+
+}
+
+
+
+
+}
+
+    }//parllel
     }
         stage('Final')
         {
