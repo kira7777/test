@@ -109,7 +109,7 @@ inventoryPath("/var/jenkins_ansible_home/hosts")
 }
 
 triggers{
-upstream(ansibleENV,'SUCCESS') 
+upstream('ansibleENV','SUCCESS') 
 
 }
 
