@@ -22,7 +22,7 @@ pipeline {
             }
             
         }
-stage('Deploy') {
+stage('CodeFixAndValidation') {
             steps {
                 sh 'echo "success!"; exit 0'
             }
