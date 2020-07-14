@@ -107,10 +107,17 @@ ansiblePlaybook('/var/jenkins_ansible_home/ansible-simple-project/ansible-simple
 inventoryPath("/var/jenkins_ansible_home/hosts")
 
 }
+conditionalBuilder {
+ conditionalbuilders {
+
 downstream {
 childProjects('ansibleENV') 
 threshold('SUCCESS') 
-} 
+ 
+}
+}
+
+}
 //triggers{
 //upstream('ansibleENV','SUCCESS') 
 
