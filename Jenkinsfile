@@ -29,7 +29,7 @@ stage('Test') {
 
 stage('CodeFixAndValidation') {
             steps {
-                sh 'echo "success!"; exit 0'
+	sh 'echo "success !"; exit 0'
             }
     }
 
