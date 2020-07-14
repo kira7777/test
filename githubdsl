@@ -108,8 +108,14 @@ inventoryPath("/var/jenkins_ansible_home/hosts")
 
 }
 conditionalBuilder {
- conditionalbuilders {
+runCondition {
+alwaysRun()
+}
 
+runner {
+run()
+}
+conditionalbuilders {
 downstream {
 childProjects('ansibleENV') 
 threshold('SUCCESS') 
