@@ -1,2 +1,2 @@
-@Library('my_lib@master')
+@Library('my_lib@master') _
 standars()
