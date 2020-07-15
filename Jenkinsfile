@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent  {
+    docker {
+       image "docker_agent"
+    }
+}
       environment {
         NAME = 'Gimmy'
         LASTNAME = 'Muller'
