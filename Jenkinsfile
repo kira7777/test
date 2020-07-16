@@ -1,12 +1,8 @@
 pipeline {
-    agent  {
-    docker {
-       image "docker_agent"
-    }
-} 
+    agent any 
 
       environment {
-        NAME = 'Gimmy'
+        NAME = 'Gimmy_the_Dev'
         LASTNAME = 'Muller'
         secret = credentials('My_SECRET')
 
@@ -14,7 +10,7 @@ pipeline {
     stages {
 
 
-stage('Test') {
+stage('Test_dev') {
             steps {
                 
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
@@ -35,7 +31,7 @@ stage('CodeFixAndValidation') {
  parallel {
       // One or more stages need to be included within the parallel block.
 
-       stage(CodeFix)
+       stage(CodeFix_dev)
 {
 
 
@@ -46,7 +42,7 @@ stage('CodeFixAndValidation') {
 }
 
 
-stage(CodeValidation){
+stage(CodeValidation_dev){
 
 steps{
 
@@ -64,7 +60,7 @@ sh 'echo "the Code Validation Stage"; exit 0'
 
 
 
-stage('Final')
+stage('Final_dev')
         {
             steps
             {
