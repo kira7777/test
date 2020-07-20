@@ -1,0 +1,41 @@
+pipeline{
+    agent any
+    tools{
+          maven 'maven_lastVesion'
+    }
+     options {
+    buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
+copyArtifactPermission('maven-job-2')
+  }
+    stages{
+        
+        stage ('SCM checkout')
+        {
+            
+            steps{
+git branch: 'master', url: 'https://github.com/jenkins-docs/simple-java-maven-app'
+            }
+            
+            
+        }
+        stage('build')
+        {
+            steps{
+            sh 'mvn -B -DskipTests clean package'    
+            }
+            
+        }
+        stage('test')
+        {
+           steps{ sh 'mvn test' }
+        }
+    }
+        post {
+        always {
+            junit 'target/surefire-reports/*.xml'
+        }
+        success {
+            archiveArtifacts artifacts: 'target/**/*.jar', fingerprint: true
+        }
+    }
+}
